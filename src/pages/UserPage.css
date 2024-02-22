@@ -1,0 +1,73 @@
+.home {
+    float: right;
+}
+
+.home-root {
+    width: 65%;
+    margin: 0 auto;
+    color: #3177ba;
+    padding-top: 12px;
+}
+
+.home-icon {
+    width: 30px;
+    padding: 4px;
+    margin-bottom: -8px;
+}
+
+.search{
+    width: 64%;
+    margin: 0 auto;
+    color: #3177ba;
+    background-color: #d9d9d9;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.find-user{
+    padding-left: 10px;
+    color: gray;
+}
+.select-user{
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.super-app-theme--header{
+    background-color: #ffffff;
+}
+
+.title-create {
+    background-color: #6498ce;
+    color: rgb(0 101 155);
+    font-size: small;
+    width: 65%;
+    margin: 0 auto;
+    margin-top: 8px;
+    margin-bottom: -13px;
+    border: 1px solid #d9d9d9;
+    padding: 11px 0px 12px 0px;
+}
+
+.create-btn{
+    background-color:rgb(83 127 174)!important;
+    margin-left: 5px !important;
+    font-weight: bold !important;
+    text-transform: capitalize !important;
+    box-shadow: none !important;
+}
+
+.delete-btn{
+    background-color: rgb(83 127 174) !important;
+    color: white !important;
+    margin-left: 10px !important;
+    border-radius: 0px !important;
+}
+
+.list-icons{
+    color: rgb(83 127 174)  !important;
+}
+
+.form-design{
+    padding-bottom: 20px !important;
+}

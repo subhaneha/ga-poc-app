@@ -1,6 +1,11 @@
 import React from "react";
 import { Grid, Typography, styled } from "@mui/material";
-import { AccessTime, People } from "@mui/icons-material";
+import { AccessTime, People, } from "@mui/icons-material";
+import BusinessIcon from '@mui/icons-material/Business';
+import FileCopyIcon from '@mui/icons-material/FileCopy';
+import StorageIcon from '@mui/icons-material/Storage';
+import SettingsIcon from '@mui/icons-material/Settings';
+import ArticleIcon from '@mui/icons-material/Article';
 import { NavLink } from "react-router-dom";
 const StyledNavLink = styled(NavLink)({
   display: "flex",
@@ -46,23 +51,23 @@ const Header = () => {
           Users
         </StyledNavLink>
         <Typography display="flex" alignItems="center" columnGap="4px">
-          <AccessTime />
+          <FileCopyIcon />
           Resources
         </Typography>
         <Typography display="flex" alignItems="center" columnGap="4px">
-          <AccessTime />
+          <BusinessIcon />
           Organization
         </Typography>
         <Typography display="flex" alignItems="center" columnGap="4px">
-          <AccessTime />
+          <StorageIcon />
           Servers
         </Typography>
         <Typography display="flex" alignItems="center" columnGap="4px">
-          <AccessTime />
+          <SettingsIcon />
           Configuration
         </Typography>
         <Typography display="flex" alignItems="center" columnGap="4px">
-          <AccessTime />
+          <ArticleIcon />
           Opened Connect
         </Typography>
       </Grid>

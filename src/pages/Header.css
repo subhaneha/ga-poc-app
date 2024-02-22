@@ -1,0 +1,27 @@
+/* Header.css */
+.header-container {
+  background-color: #00649b;
+  color: #ffffff;
+  display: flex;
+}
+
+.header-links-container {
+  display: flex;
+  column-gap: 12px;
+  margin: auto;
+  padding: 4px 0;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+  color: #ffffff;
+  fill: #ffffff;
+  text-decoration: none;
+  padding: 12px 8px;
+}
+
+/* .nav-link.active {
+  background-color: #ffffff;
+} */

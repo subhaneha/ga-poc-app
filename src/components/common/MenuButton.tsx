@@ -21,7 +21,8 @@ const StyledNavLink = styled(NavLink)({
     display: "flex",
     alignItems: "center",
     columnGap: "4px",
-    width:'120px',
+    color:'#000000',
+    width:'100px',
     textDecoration: "none",
 });
 
@@ -56,7 +57,7 @@ export const CustomizedMenus: React.FC<{ menuConfig: MenuConfig }> = ({ menuConf
 
     return (
         <div>
-            <Button style={{ background: 'rgb(0 100 155)' }}
+            <Button style={{ background: 'rgb(0 100 155)',width:'125px',fontSize:'12px' }}
                 id="demo-customized-button"
                 aria-controls={open ? 'demo-customized-menu' : undefined}
                 aria-haspopup="true"
@@ -66,7 +67,7 @@ export const CustomizedMenus: React.FC<{ menuConfig: MenuConfig }> = ({ menuConf
                 onClick={handleClick}
                 endIcon={<KeyboardArrowDownIcon />}
             >
-                <menuConfig.icon />
+                <menuConfig.icon style={{fontSize:'18px',padding:'4px'}}/>
                 {menuConfig.title}
             </Button>
             <StyledMenu
@@ -80,10 +81,10 @@ export const CustomizedMenus: React.FC<{ menuConfig: MenuConfig }> = ({ menuConf
             >
                 {menuConfig.menuOptions.map((each) => (
                     <>
-                        <MenuItem  onClick={handleClose} disableRipple>
+                        <MenuItem style={{fontSize:'12px',padding:'4px'}}  onClick={handleClose} disableRipple>
                             <StyledNavLink  to={each.path} >
+                                <each.icon style={{fontSize:'14px',padding:'4px'}}/>
                                 {each.title}
-                                <each.icon />
                             </StyledNavLink>
                         </MenuItem>
                     </>

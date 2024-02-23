@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardContent, Typography, Box, useTheme,styled } from '@mui/material';
+import { fontSize } from '@mui/system';
 
 interface InfoCardProps {
   title: string;
@@ -26,7 +27,7 @@ export const InfoCard: React.FC<InfoCardProps> = ({ title, count, IconComponent,
           <Typography variant="h5">
             {count}
           </Typography>
-          <Typography color="textSecondary" gutterBottom>
+          <Typography color="textSecondary" style={{fontSize:'14px'}}gutterBottom>
           {title}
         </Typography>
         </Box>

@@ -8,47 +8,99 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import ArticleIcon from "@mui/icons-material/Article";
 import { NavLink } from "react-router-dom";
 import "./Header.css"; // Import the CSS file
+import { CustomizedMenus, MenuConfig } from "../components/common/MenuButton";
+const resources: MenuConfig = {
+  menuOptions: [
+    {
+      title: 'resources',
+      icon: StorageIcon,
+      path: '/'
+    },
+  ],
+  title: 'RESOURCES',
+  icon: FileCopyIcon
+}
+const users: MenuConfig = {
+  menuOptions: [
+    {
+      title: 'Create User',
+      icon: StorageIcon,
+      path: '/users'
+    },
+  ],
+  title: 'USER',
+  icon: People
+}
 
+const organizations: MenuConfig = {
+  menuOptions: [
+    {
+      title: 'Org',
+      icon: StorageIcon,
+      path: '/users'
+    },
+  ],
+  title: 'Organizations',
+  icon: BusinessIcon
+
+}
+
+const servers: MenuConfig = {
+  menuOptions: [
+    {
+      title: 'server',
+      icon: StorageIcon,
+      path: '/users'
+    },
+  ],
+  title: 'Servers',
+  icon: StorageIcon
+
+}
+
+const configurations: MenuConfig = {
+  menuOptions: [
+    {
+      title: 'Config',
+      icon: StorageIcon,
+      path: '/users'
+    },
+  ],
+  title: 'Configurations',
+  icon: SettingsIcon
+
+}
 const Header = () => {
   return (
     <Grid className="header-container">
       <Grid container md={10} className="header-links-container">
-        <NavLink
+        <Typography className="nav-link" style={{ background: 'rgb(0 100 155)',width:'80px',fontSize:'12px' }} >
+        <NavLink style={{ background: 'rgb(0 100 155)',fontSize:'12px',padding:'8px' }}
           to="/"
           className={({ isActive }) =>
             isActive ? "nav-link active" : "nav-link"
-          }
-        >
-          <AccessTime />
+          }>
+          <AccessTime style={{fontSize:'18px',padding:'4px'}}/>
           Dashboard
         </NavLink>
-        <NavLink
-          to="/users"
-          className={({ isActive }) =>
-            isActive ? "nav-link active" : "nav-link"
-          }
-        >
-          <People />
-          Users
-        </NavLink>
-        <Typography className="nav-link">
-          <FileCopyIcon />
-          Resources
+        </Typography>
+        <Typography display="flex" alignItems="center" columnGap="4px">
+          <CustomizedMenus menuConfig={users}></CustomizedMenus>
+        </Typography>
+        <Typography display="flex" alignItems="center" columnGap="4px">
+          <CustomizedMenus menuConfig={resources} />
         </Typography>
         <Typography className="nav-link">
-          <BusinessIcon />
-          Organization
+          <CustomizedMenus menuConfig={organizations} />
         </Typography>
         <Typography className="nav-link">
-          <StorageIcon />
-          Servers
+          <CustomizedMenus menuConfig={servers} />
         </Typography>
         <Typography className="nav-link">
-          <SettingsIcon />
-          Configuration
+          <CustomizedMenus menuConfig={configurations} />
         </Typography>
-        <Typography className="nav-link">
-          <ArticleIcon />
+        <Typography className="nav-link" style={{ background: 'rgb(0 100 155)',width:'125px',fontSize:'12px' }} >
+          <ArticleIcon style={{fontSize:'18px',padding:'4px'}}/>
           OpenID Connect
         </Typography>
       </Grid>

@@ -30,7 +30,6 @@ const users: MenuConfig = {
   ],
   title: "USER",
   icon: People,
-  path: "/users",
 };
 
 const organizations: MenuConfig = {

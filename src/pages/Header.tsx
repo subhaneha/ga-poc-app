@@ -47,10 +47,15 @@ const Header = () => {
           <SettingsIcon />
           Configuration
         </Typography>
-        <Typography className="nav-link">
+        <NavLink
+          to="/openId"
+          className={({ isActive }) =>
+            isActive ? "nav-link active" : "nav-link"
+          }
+        >
           <ArticleIcon />
           OpenID Connect
-        </Typography>
+        </NavLink>
       </Grid>
     </Grid>
   );

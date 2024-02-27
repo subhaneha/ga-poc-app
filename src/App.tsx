@@ -1,18 +1,21 @@
 import React from 'react';
+import "./App.css"
 import { DashboardPage } from './pages/DashboardPage';
 import Header from './pages/Header';
 import { BrowserRouter, Route,Routes } from 'react-router-dom';
 import UserPage from './pages/UserPage';
+import OpenIdPage from './pages/OpenIdPage';
 
 const App: React.FC = () => {
   return (
     <div>
       <BrowserRouter>
-      <Header/>
-      <Routes>
-        <Route  path="/" element={<DashboardPage/>} />
-        <Route  path="/users" element={<UserPage/>} />
-      </Routes>
+        <Header/>
+        <Routes>
+          <Route  path="/" element={<DashboardPage/>} />
+          <Route  path="/users" element={<UserPage/>} />
+          <Route  path="/openId" element={<OpenIdPage/>} />
+        </Routes>
       </BrowserRouter>
     </div>
   );

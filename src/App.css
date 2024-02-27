@@ -28,6 +28,20 @@
   color: #61dafb;
 }
 
+.pageHead{
+  font-size: 18px;
+  color: #6498ce;
+  font-weight: 600;
+}
+.tableHeader{
+  background-color: #6498ce;
+  padding: 8px;
+}
+.searchBar{
+    background-color: rgba(217, 217, 217, 0.4);
+    padding: 8px 4% 8px 4px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -12,77 +12,88 @@ import { CustomizedMenus, MenuConfig } from "../components/common/MenuButton";
 const resources: MenuConfig = {
   menuOptions: [
     {
-      title: 'resources',
+      title: "resources",
       icon: StorageIcon,
-      path: '/'
+      path: "/",
     },
   ],
-  title: 'RESOURCES',
-  icon: FileCopyIcon
-}
+  title: "RESOURCES",
+  icon: FileCopyIcon,
+};
 const users: MenuConfig = {
   menuOptions: [
     {
-      title: 'Create User',
+      title: "Create User",
       icon: StorageIcon,
-      path: '/users'
+      path: "/users",
     },
   ],
-  title: 'USER',
-  icon: People
-}
+  title: "USER",
+  icon: People,
+  path: "/users",
+};
 
 const organizations: MenuConfig = {
   menuOptions: [
     {
-      title: 'Org',
+      title: "Org",
       icon: StorageIcon,
-      path: '/users'
+      path: "/users",
     },
   ],
-  title: 'Organizations',
-  icon: BusinessIcon
-
-}
+  title: "Organizations",
+  icon: BusinessIcon,
+};
 
 const servers: MenuConfig = {
   menuOptions: [
     {
-      title: 'server',
+      title: "server",
       icon: StorageIcon,
-      path: '/users'
+      path: "/users",
     },
   ],
-  title: 'Servers',
-  icon: StorageIcon
-
-}
+  title: "Servers",
+  icon: StorageIcon,
+};
 
 const configurations: MenuConfig = {
   menuOptions: [
     {
-      title: 'Config',
+      title: "Config",
       icon: StorageIcon,
-      path: '/users'
+      path: "/users",
     },
   ],
-  title: 'Configurations',
-  icon: SettingsIcon
-
-}
+  title: "Configurations",
+  icon: SettingsIcon,
+};
 const Header = () => {
   return (
     <Grid className="header-container">
       <Grid container md={10} className="header-links-container">
-        <Typography className="nav-link" style={{ background: 'rgb(0 100 155)',width:'80px',fontSize:'12px' }} >
-        <NavLink style={{ background: 'rgb(0 100 155)',fontSize:'12px',padding:'8px' }}
-          to="/"
-          className={({ isActive }) =>
-            isActive ? "nav-link active" : "nav-link"
-          }>
-          <AccessTime style={{fontSize:'18px',padding:'4px'}}/>
-          Dashboard
-        </NavLink>
+        <Typography
+          className="nav-link"
+          style={{
+            background: "rgb(0 100 155)",
+            width: "80px",
+            fontSize: "12px",
+          }}
+        >
+          <NavLink
+            style={{
+              background: "rgb(0 100 155)",
+              fontSize: "12px",
+              padding: "8px",
+            }}
+            to="/"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }
+          >
+            <AccessTime style={{ fontSize: "18px", padding: "4px" }} />
+            Dashboard
+          </NavLink>
         </Typography>
         <Typography display="flex" alignItems="center" columnGap="4px">
           <CustomizedMenus menuConfig={users}></CustomizedMenus>
@@ -99,8 +110,15 @@ const Header = () => {
         <Typography className="nav-link">
           <CustomizedMenus menuConfig={configurations} />
         </Typography>
-        <Typography className="nav-link" style={{ background: 'rgb(0 100 155)',width:'125px',fontSize:'12px' }} >
-          <ArticleIcon style={{fontSize:'18px',padding:'4px'}}/>
+        <Typography
+          className="nav-link"
+          style={{
+            background: "rgb(0 100 155)",
+            width: "125px",
+            fontSize: "12px",
+          }}
+        >
+          <ArticleIcon style={{ fontSize: "18px", padding: "4px" }} />
           OpenID Connect
         </Typography>
       </Grid>

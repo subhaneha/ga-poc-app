@@ -5,8 +5,8 @@ import { AccessTime, People } from "@mui/icons-material";
 import ArticleIcon from "@mui/icons-material/Article";
 import { NavLink, useNavigate } from "react-router-dom";
 import styles from "./Header.module.css"; // Import the CSS file
-import { CustomizedMenus } from "../components/common/MenuButton";
-import { configurations, organizations, resources, servers, users } from "../assets/constants";
+import { CustomizedMenus } from "./MenuButton";
+import { configurations, organizations, resources, servers, users } from "../../assets/constants";
 
 
 const Header = () => {

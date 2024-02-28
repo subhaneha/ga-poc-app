@@ -1,23 +1,24 @@
-import React from "react";
-import "./UserPage.css";
-import HomeIcon from "@mui/icons-material/Home";
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import { Button, Card, Grid, IconButton, MenuItem } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
-import DeleteIcon from "@mui/icons-material/Delete";
-import FileCopyIcon from "@mui/icons-material/FileCopy";
-import InfoIcon from "@mui/icons-material/Info";
-import InsertDriveFileIcon from "@mui/icons-material/InsertDriveFile";
-import EditIcon from "@mui/icons-material/Edit";
-import HighlightOffIcon from "@mui/icons-material/HighlightOff";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import DialogTitle from "@mui/material/DialogTitle";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import React from 'react';
+import './UserPage.css';
+import { GridColDef } from '@mui/x-data-grid';
+import { Box, Button, Card, Grid, IconButton, MenuItem, Typography } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import DeleteIcon from '@mui/icons-material/Delete';
+import FileCopyIcon from '@mui/icons-material/FileCopy';
+import InfoIcon from '@mui/icons-material/Info';
+import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
+import EditIcon from '@mui/icons-material/Edit';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import DialogTitle from '@mui/material/DialogTitle';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { Breadcrumb } from '../components/common/BreadCrumb';
+import { TableLayout } from '../components/common/Table';
 const UserPage: React.FC = () => {
   const [open, setOpen] = React.useState(false);
 
@@ -172,79 +173,49 @@ const UserPage: React.FC = () => {
   ];
   return (
     <>
-      <div className="home-root">
-        <div>
-          <span className="title">User Administration</span>
-          <span className="home">
-            <HomeIcon className="home-icon" fontSize="small" color="primary" />/
-            Users
-          </span>
-        </div>
-      </div>
+            <Box display="flex" sx={{ my: 2, justifyContent: 'space-between' }}>
+                <Typography className="pageHead" variant="h6" sx={{ my: 0 }}>User Administration</Typography>
+                <Breadcrumb  title='Users' />
+            </Box>
 
-      <div className="search">
-        <div>
-          <span className="find-user">Find Users</span>
-          <span className="home">
-            <input
-              type="search"
-              placeholder="Search"
-              id="gsearch"
-              name="gsearch"
-            />
-            <label className="select-user">in</label>
-            <select name="cars" id="cars">
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="opel">Opel</option>
-              <option value="audi">Audi</option>
-            </select>
-          </span>
-        </div>
-      </div>
+            <Box display="flex" className="searchBar" sx={{ my: 2, justifyContent: 'space-between' }}>
+                <div className='find-user'>Find Users</div>
+                <div className='home'>
+                    <input type="search" placeholder='Search' id="gsearch" name="gsearch" />
+                    <label className='select-user'>in</label>
+                    <select name="cars" id="cars">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="opel">Opel</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </div>
+            </Box>
 
-      <div className="title-create">
-        <Grid container spacing={0}>
-          <Grid xs={10}>
-            <Button
-              variant="contained"
-              size="small"
-              className="create-btn"
-              onClick={handleClickOpen}
-              startIcon={<AddIcon />}
-            >
-              Create
-            </Button>
-          </Grid>
-          <Grid xs={2}>
-            <IconButton aria-label="delete" size="small" className="delete-btn">
-              <DeleteIcon />
-            </IconButton>
-            <IconButton aria-label="delete" size="small" className="delete-btn">
-              <HighlightOffIcon />
-            </IconButton>
-            <IconButton aria-label="delete" size="small" className="delete-btn">
-              <InsertDriveFileIcon />
-            </IconButton>
-          </Grid>
-        </Grid>
-      </div>
-      <div className="home-root">
-        <div style={{ height: 300, width: "100%" }}>
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            initialState={{
-              pagination: {
-                paginationModel: { page: 0, pageSize: 5 },
-              },
-            }}
-            pageSizeOptions={[5, 10]}
-            checkboxSelection
-          />
-        </div>
-      </div>
-      <React.Fragment>
+            <div className="tableHeader">
+                <Grid container spacing={0}>
+                    <Grid item xs={10}>
+                        <Button variant="contained" size='small' className='create-btn' onClick={handleClickOpen} startIcon={<AddIcon />}>
+                            Create
+                        </Button>
+                    </Grid>
+                    <Grid item xs={2} container justifyContent="flex-end">
+                        <IconButton aria-label="delete" size='small' className='delete-btn'>
+                            <DeleteIcon />
+                        </IconButton>
+                        <IconButton aria-label="delete" size='small' className='delete-btn'>
+                            <HighlightOffIcon />
+                        </IconButton>
+                        <IconButton aria-label="delete" size='small' className='delete-btn'>
+                            <InsertDriveFileIcon />
+                        </IconButton>
+                    </Grid>
+                </Grid>
+            </div>
+            <div style={{ width: '100%' }}>
+                <TableLayout rowvalues={rows} coloumnvalues={columns} />
+            </div>
+            <React.Fragment>
         <Dialog
           open={open}
           fullWidth
@@ -422,5 +393,4 @@ const UserPage: React.FC = () => {
     </>
   );
 };
-
 export default UserPage;

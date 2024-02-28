@@ -5,23 +5,13 @@ import Menu, { MenuProps } from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-export interface MenuConfig {
-    title: string,
-    icon: React.ElementType;
-    menuOptions: MenuOptions[]
-}
-export interface MenuOptions {
-    title: string,
-    icon: React.ElementType;
-    path: string
-}
+import { MenuConfig } from '../../interfaces/menu.interface';
 
 const StyledNavLink = styled(NavLink)({
     display: "flex",
     alignItems: "center",
     columnGap: "4px",
-    color:'#000000',
+    // color:'#000000',
     width:'100px',
     textDecoration: "none",
 });
@@ -50,26 +40,28 @@ export const CustomizedMenus: React.FC<{ menuConfig: MenuConfig }> = ({ menuConf
 
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorEl(event.currentTarget);
+        navigate(menuConfig.path);
     };
     const handleClose = () => {
         setAnchorEl(null);
     };
-    const handleNavigate = () => {
-       navigate('')
+
+    const handleNavigate = (event:any) => {
+        event.stopPropagation();
+        setAnchorEl(event.currentTarget);
     };
 
     return (
         <div>
-            <Button style={{ background: 'rgb(0 100 155)',width:'125px',fontSize:'12px' }}
+            <Button style={{ background: 'rgb(0 100 155)',width:'128px',fontSize:'12px' }}
                 id="demo-customized-button"
                 aria-controls={open ? 'demo-customized-menu' : undefined}
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
                 variant="contained"
                 disableElevation
-                onClick={handleNavigate}
-                endIcon={<KeyboardArrowDownIcon/>}
+                onClick={handleClick}
+                endIcon={<KeyboardArrowDownIcon onClick={handleNavigate}/>}
             >
                 <menuConfig.icon style={{fontSize:'18px',padding:'4px'}}/>
                 {menuConfig.title}
@@ -84,14 +76,11 @@ export const CustomizedMenus: React.FC<{ menuConfig: MenuConfig }> = ({ menuConf
                 onClose={handleClose}
             >
                 {menuConfig.menuOptions.map((each) => (
-                    <>
-                        <MenuItem style={{fontSize:'12px',padding:'4px'}}  onClick={handleClose} disableRipple>
+                        <MenuItem   onClick={handleClose} disableRipple>
                             <StyledNavLink  to={each.path} >
-                                <each.icon style={{fontSize:'14px',padding:'4px'}}/>
                                 {each.title}
                             </StyledNavLink>
                         </MenuItem>
-                    </>
                 ))}
 
             </StyledMenu>

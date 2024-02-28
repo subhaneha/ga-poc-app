@@ -1,61 +1,62 @@
 import React from "react";
-import { Grid, Typography } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import { AccessTime, People } from "@mui/icons-material";
-import BusinessIcon from "@mui/icons-material/Business";
-import FileCopyIcon from "@mui/icons-material/FileCopy";
-import StorageIcon from "@mui/icons-material/Storage";
-import SettingsIcon from "@mui/icons-material/Settings";
+
 import ArticleIcon from "@mui/icons-material/Article";
-import { NavLink } from "react-router-dom";
-import "./Header.css"; // Import the CSS file
+import { NavLink, useNavigate } from "react-router-dom";
+import styles from "./Header.module.css"; // Import the CSS file
+import { CustomizedMenus } from "./MenuButton";
+import { configurations, organizations, resources, servers, users } from "../../assets/constants";
+
 
 const Header = () => {
+  const navigate = useNavigate();
+  const handleDashboardBtn = () => {
+    navigate('/');
+  };
   return (
-    <Grid className="header-container">
-      <Grid container md={10} className="header-links-container">
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-            isActive ? "nav-link active" : "nav-link"
-          }
+    <Grid className={styles['header-container']}>
+      <Grid container md={10} className={styles["header-links-container"]}>
+        <Typography
+          className={styles["nav-link"]}
+          style={{
+            background: "rgb(0 100 155)",
+            width: "80px",
+            fontSize: "12px",
+          }}
         >
-          <AccessTime />
-          Dashboard
-        </NavLink>
-        <NavLink
-          to="/users"
-          className={({ isActive }) =>
-            isActive ? "nav-link active" : "nav-link"
-          }
+
+          <Button style={{ background: 'rgb(0 100 155)', width: '128px', fontSize: '12px',color:'#ffffff' }} onClick={handleDashboardBtn}>
+            <AccessTime style={{ fontSize: "18px", padding: "4px" }} />
+            DASHBOARD
+          </Button>
+          
+        </Typography>
+        <Typography display="flex" alignItems="center" columnGap="4px">
+          <CustomizedMenus menuConfig={users}></CustomizedMenus>
+        </Typography>
+        <Typography display="flex" alignItems="center" columnGap="4px">
+          <CustomizedMenus menuConfig={resources} />
+        </Typography>
+        <Typography className={styles["nav-link"]}>
+          <CustomizedMenus menuConfig={organizations} />
+        </Typography>
+        <Typography className={styles["nav-link"]}>
+          <CustomizedMenus menuConfig={servers} />
+        </Typography>
+        <Typography className={styles["nav-link"]}>
+          <CustomizedMenus menuConfig={configurations} />
+        </Typography>
+        <Typography
+          className={styles["nav-link"]}
+          style={{
+            background: "rgb(0 100 155)",
+            fontSize: "12px",
+          }}
         >
-          <People />
-          Users
-        </NavLink>
-        <Typography className="nav-link">
-          <FileCopyIcon />
-          Resources
+          <ArticleIcon style={{ fontSize: "18px", padding: "4px" }} />
+          OPENID CONNECT
         </Typography>
-        <Typography className="nav-link">
-          <BusinessIcon />
-          Organization
-        </Typography>
-        <Typography className="nav-link">
-          <StorageIcon />
-          Servers
-        </Typography>
-        <Typography className="nav-link">
-          <SettingsIcon />
-          Configuration
-        </Typography>
-        <NavLink
-          to="/openId"
-          className={({ isActive }) =>
-            isActive ? "nav-link active" : "nav-link"
-          }
-        >
-          <ArticleIcon />
-          OpenID Connect
-        </NavLink>
       </Grid>
     </Grid>
   );

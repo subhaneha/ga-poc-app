@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.MuiMenu-paper{
+  border-radius: 0 !important;
+}
+.MuiMenu-list{
+  background: #6498ce;
+  min-width: 150px;
+}
+.MuiMenu-list a{
+  color: #fff;
+  font-size: 0.8rem;
+}

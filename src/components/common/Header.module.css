@@ -10,6 +10,7 @@
   column-gap: 12px;
   margin: auto;
   padding: 4px 0;
+  height: 60px;
 }
 
 .nav-link {
@@ -19,7 +20,7 @@
   color: #ffffff;
   fill: #ffffff;
   text-decoration: none;
-  padding: 12px 8px;
+  padding: 6px
 }
 
 /* .nav-link.active {

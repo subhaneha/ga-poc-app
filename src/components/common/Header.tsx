@@ -16,7 +16,7 @@ const Header = () => {
   };
   return (
     <Grid className={styles['header-container']}>
-      <Grid container md={10} className={styles["header-links-container"]}>
+      <Grid container className={styles["header-links-container"]}>
         <Typography
           className={styles["nav-link"]}
           style={{

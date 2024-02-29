@@ -1,12 +1,12 @@
 /* Header.css */
 .header-container {
   background-color: #00649b;
-  display: flex;
-  justify-content: center
 }
 
 .header-links-container {
   height: 60px;
+  display: flex;
+  justify-content: center
 }
 
 .nav-link {

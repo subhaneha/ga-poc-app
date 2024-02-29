@@ -4,7 +4,8 @@ import { People } from "@mui/icons-material";
 import BusinessIcon from "@mui/icons-material/Business";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
 import SettingsIcon from "@mui/icons-material/Settings";
-import { MenuConfig } from "../interfaces/menu.interface";
+import ArticleIcon from "@mui/icons-material/Article";
+import { MenuConfig } from '../interfaces/menu.interface';
 export const users: MenuConfig = {
   menuOptions: [
     {
@@ -90,37 +91,39 @@ export const servers: MenuConfig = {
 };
 
 export const configurations: MenuConfig = {
-  menuOptions: [
-    {
-      title: "Password Rules",
-      path: "/users",
-    },
-    {
-      title: "Login Monitoring",
-      path: "/users",
-    },
-    {
-      title: "System Locale",
-      path: "/users",
-    },
-    {
-      title: "SMTP License",
-      path: "/users",
-    },
-    {
-      title: "System Configurations",
-      path: "/users",
-    },
-    {
-      title: "Session Management",
-      path: "/users",
-    },
-    {
-      title: "Configuration Reload",
-      path: "/users",
-    },
-  ],
-  title: "Configurations",
-  icon: SettingsIcon,
-  path: "/users",
+    menuOptions: [
+        {
+            title: "Password Rules",
+            path: "/users",
+        }, {
+            title: "Login Monitoring",
+            path: "/users",
+        }, {
+            title: "System Locale",
+            path: "/users",
+        }, {
+            title: "SMTP License",
+            path: "/users",
+        }, {
+            title: "System Configurations",
+            path: "/users",
+        }, {
+            title: "Session Management",
+            path: "/users",
+        },
+        {
+            title: "Configuration Reload",
+            path: "/users",
+        },
+    ],
+    title: "Configurations",
+    icon: SettingsIcon,
+    path: "/users",
+};
+
+export const opnId: MenuConfig = {
+    menuOptions: [ ],
+    title: "OpenId Connect",
+    icon: ArticleIcon,
+    path: "/openId",
 };

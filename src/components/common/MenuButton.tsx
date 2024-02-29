@@ -53,7 +53,7 @@ export const CustomizedMenus: React.FC<{ menuConfig: MenuConfig }> = ({ menuConf
 
     return (
         <div>
-            <Button style={{ background: 'rgb(0 100 155)',width:'128px',fontSize:'12px' }}
+            <Button style={{ background: 'rgb(0 100 155)',fontSize:'12px' }}
                 id="demo-customized-button"
                 aria-controls={open ? 'demo-customized-menu' : undefined}
                 aria-haspopup="true"

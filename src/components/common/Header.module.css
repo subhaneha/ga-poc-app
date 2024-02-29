@@ -1,15 +1,11 @@
 /* Header.css */
 .header-container {
   background-color: #00649b;
-  color: #ffffff;
   display: flex;
+  justify-content: center
 }
 
 .header-links-container {
-  display: flex;
-  column-gap: 12px;
-  margin: auto;
-  padding: 4px 0;
   height: 60px;
 }
 

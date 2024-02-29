@@ -12,7 +12,6 @@ interface ListBoxProps{
 
 }
 const StyledListBox=styled(Grid)({
-width:"350px",
 '.footer':{
   backgroundColor:'#00649b',
   color:"#ffffff",

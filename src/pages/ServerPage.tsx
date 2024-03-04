@@ -9,12 +9,17 @@ import ListIcon from "@mui/icons-material/List";
 import { GridColDef } from "@mui/x-data-grid";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
 import { CreateServerModal } from "../components/modals/CreateServerModal";
+import WarningIcon from '@mui/icons-material/Warning';
+import { ConfirmationAlert } from "../components/common/ConfirmationAlert";
 
 const ServerPage = () => {
   const [open, setOpen] = React.useState(false);
-
+  const [openAlert, setOpenAlert] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
+  };
+  const handleOpenAlert = () => {
+    setOpenAlert(true);
   };
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", flex: 1, sortable: false },
@@ -110,6 +115,7 @@ const ServerPage = () => {
   return (
     <>
       <CreateServerModal openModal={open} handleClose={() => setOpen(false)} />
+      <ConfirmationAlert openModal={openAlert} title={'Delete Confirmation'} desc={'You were able to delete this server., Once you do so there is no way to undo action'} IconComponent={WarningIcon} handleClose={() => setOpenAlert(false)}/>
       <Box display="flex" sx={{ my: 2, justifyContent: "space-between" }}>
         <Typography className="pageHead" variant="h6" sx={{ my: 0 }}>
           Server Administration
@@ -145,8 +151,8 @@ const ServerPage = () => {
             </Button>
           </Grid>
           <Grid item xs={1} container justifyContent="flex-end">
-            <IconButton aria-label="delete" size="small" className="delete-btn">
-              <DeleteIcon />
+            <IconButton onClick={handleOpenAlert} aria-label="delete" size="small" className="delete-btn">
+              <DeleteIcon   />
             </IconButton>
             <IconButton aria-label="update" size="small" className="delete-btn">
               <ListIcon />

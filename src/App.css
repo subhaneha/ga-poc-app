@@ -28,24 +28,39 @@
   color: #61dafb;
 }
 
-.pageHead{
+.buttonStyle {
+  background-color: rgb(83 127 174) !important;
+  text-transform: capitalize !important;
+  box-shadow: none !important;
+}
+
+.pageHead {
   font-size: 18px;
   color: #6498ce;
   font-weight: 600;
 }
-.tableHeader{
+
+.tableHeader {
   background-color: #6498ce;
   padding: 8px;
 }
-.searchBar{
-    background-color: rgba(217, 217, 217, 0.4);
-    padding: 8px 4% 8px 4px;
+
+.searchBar {
+  background-color: rgba(217, 217, 217, 0.4);
+  padding: 8px 4% 8px 4px;
+}
+
+.outlineInput {
+  width: 550px !important;
+  height: 35px !important;
+  font-size: 14px !important;
 }
 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

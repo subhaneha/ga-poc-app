@@ -1,16 +1,14 @@
 import * as React from 'react';
-import Button from '@mui/joy/Button';
-import Divider from '@mui/joy/Divider';
-import DialogTitle from '@mui/joy/DialogTitle';
-import DialogContent from '@mui/joy/DialogContent';
-import DialogActions from '@mui/joy/DialogActions';
-import Modal from '@mui/joy/Modal';
-import ModalDialog from '@mui/joy/ModalDialog';
+import {
+    Button,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogTitle,
+    IconButton,
+} from "@mui/material";
 import { Typography } from '@mui/material';
-
-import { extendTheme } from "@mui/joy/styles";
-
-
+import CloseIcon from '@mui/icons-material/Close';
 interface ConfirmationAlertProps {
     title: string;
     openModal: boolean;
@@ -23,29 +21,39 @@ export const ConfirmationAlert: React.FC<ConfirmationAlertProps> = ({ openModal,
     const [open, setOpen] = React.useState<boolean>(false);
     return (
         <React.Fragment>
-            <Modal open={openModal} onClose={handleClose}>
-                <ModalDialog  variant="outlined" role="alertdialog"  color="primary">
-                    <DialogTitle>
-                        <IconComponent />
-                        {title}
-                    </DialogTitle>
-                    <Divider />
-                    <DialogContent>
-                        <Typography>
-                            <IconComponent color='danger'/>
-                            {desc}
-                        </Typography>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button variant="solid" color="primary" onClick={() => setOpen(false)}>
-                            Ok
-                        </Button>
-                        <Button variant="plain" color="primary" onClick={() => setOpen(false)}>
-                            Cancel
-                        </Button>
-                    </DialogActions>
-                </ModalDialog>
-            </Modal>
+            <Dialog open={openModal} onClose={handleClose}>
+                <DialogTitle bgcolor={"rgb(83 127 174)"} color="#ffffff">
+                    {title}
+                </DialogTitle>
+                <IconButton
+                    aria-label="close"
+                    onClick={handleClose}
+                    sx={{
+                        position: 'absolute',
+                        right: 4,
+                        top: 4,
+                        color: 'white'
+                    }}
+                >
+                <CloseIcon />
+                </IconButton>
+                <DialogContent>
+                    <Typography>
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <span style={{ margin: '20px' }}> <IconComponent style={{ color: '#e3ac5c', fontSize: '30px' }} /> </span>
+                            <span style={{ fontSize: '16px' }}>{desc}</span>
+                        </div>
+                    </Typography>
+                </DialogContent>
+                <DialogActions style={{ justifyContent: 'center' }}>
+                    <Button variant="contained" color="primary" onClick={() => setOpen(false)}>
+                        Ok
+                    </Button>
+                    <Button variant="contained" color="primary" onClick={() => setOpen(false)}>
+                        Cancel
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </React.Fragment>
     );
 };

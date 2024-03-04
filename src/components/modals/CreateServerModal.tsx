@@ -7,10 +7,13 @@ import {
   DialogTitle,
   FormControl,
   Grid,
+  IconButton,
   OutlinedInput,
   TextareaAutosize,
 } from "@mui/material";
 import "../../pages/UserPage.css";
+import CloseIcon from '@mui/icons-material/Close';
+import SaveIconOutlinedIcon from '@mui/icons-material/Save';
 import { SubmitHandler, useForm } from "react-hook-form";
 interface ModalProps {
   openModal: boolean;
@@ -38,9 +41,21 @@ export const CreateServerModal = ({ openModal, handleClose }: ModalProps) => {
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
   return (
     <Dialog open={openModal} maxWidth="xl" onClose={handleClose}>
-      <DialogTitle bgcolor={"#1e81b0"} color="#ffffff">
+      <DialogTitle bgcolor={"rgb(83 127 174)"} color="#ffffff">
         Create Server
       </DialogTitle>
+      <IconButton
+        aria-label="close"
+        onClick={handleClose}
+        sx={{
+          position: 'absolute',
+          right: 4,
+          top: 4,
+          color: 'white'
+        }}
+      >
+        <CloseIcon />
+      </IconButton>
       <Box padding={"12px"}>
         <Grid display={"flex"} justifyContent={"flex-end"} marginBottom={"4px"}>
           <span className="required">*</span>Mandatory Fields
@@ -50,13 +65,14 @@ export const CreateServerModal = ({ openModal, handleClose }: ModalProps) => {
             <p className="title">Server Information</p>
             <Grid display={"flex"} columnGap="8px">
               <FormControl fullWidth className="form-design">
-                <label htmlFor="component-outlined">
+                <label htmlFor="component-outlined" style={{ fontSize: "14px" }}>
                   ID<span className="required">*</span>
                 </label>
                 <OutlinedInput
                   autoFocus
                   required
                   margin="dense"
+                  placeholder="ID"
                   id="id"
                   type="text"
                   fullWidth
@@ -64,12 +80,13 @@ export const CreateServerModal = ({ openModal, handleClose }: ModalProps) => {
                 />
               </FormControl>
               <FormControl fullWidth className="form-design">
-                <label htmlFor="component-outlined">
+                <label htmlFor="component-outlined" style={{ fontSize: "14px" }}>
                   Protocol<span className="required">*</span>
                 </label>
                 <OutlinedInput
                   autoFocus
                   required
+                  placeholder="Protocol"
                   margin="dense"
                   {...register("protocol", { required: true })}
                   name="protocol"
@@ -78,13 +95,14 @@ export const CreateServerModal = ({ openModal, handleClose }: ModalProps) => {
                 />
               </FormControl>
               <FormControl fullWidth className="form-design">
-                <label htmlFor="component-outlined">
+                <label htmlFor="component-outlined" style={{ fontSize: "14px" }}>
                   Name<span className="required">*</span>
                 </label>
                 <OutlinedInput
                   autoFocus
                   required
                   margin="dense"
+                  placeholder="Name"
                   id="name"
                   {...register("name", { required: true })}
                   type="text"
@@ -92,13 +110,14 @@ export const CreateServerModal = ({ openModal, handleClose }: ModalProps) => {
                 />
               </FormControl>
               <FormControl fullWidth className="form-design">
-                <label htmlFor="component-outlined">
+                <label htmlFor="component-outlined" style={{ fontSize: "14px" }}>
                   Port<span className="required">*</span>
                 </label>
                 <OutlinedInput
                   autoFocus
                   required
                   margin="dense"
+                  placeholder="Port"
                   id="port"
                   {...register("port", { required: true })}
                   type="number"
@@ -108,7 +127,7 @@ export const CreateServerModal = ({ openModal, handleClose }: ModalProps) => {
             </Grid>
             <Grid>
               <FormControl className="form-design">
-                <label htmlFor="component-outlined">
+                <label htmlFor="component-outlined" style={{ fontSize: "14px" }}>
                   Description
                   <span className="required">*</span>
                 </label>
@@ -130,16 +149,16 @@ export const CreateServerModal = ({ openModal, handleClose }: ModalProps) => {
                 justifyContent={"space-between"}
                 alignItems={"center"}
               >
-                <label>
+                <label style={{ fontSize: "14px" }}>
                   Login Challenge URL<span className="required">*</span>
                 </label>
                 <FormControl className="form-design">
-                  <OutlinedInput
-                    style={{ width: "450px", height: "48px" }}
+                  <OutlinedInput className="outlineInput"
                     autoFocus
                     required
                     margin="dense"
                     id="loginChallengeUrl"
+                    placeholder="Login Challenge URL"
                     {...register("loginChallengeUrl", { required: true })}
                     type="string"
                     fullWidth
@@ -151,15 +170,16 @@ export const CreateServerModal = ({ openModal, handleClose }: ModalProps) => {
                 justifyContent={"space-between"}
                 alignItems={"center"}
               >
-                <label>
+                <label style={{ fontSize: "14px" }}>
                   Restricted URL<span className="required">*</span>
                 </label>
 
                 <FormControl className="form-design">
                   <OutlinedInput
-                    style={{ width: "350px", height: "48px" }}
+                    className="outlineInput"
                     autoFocus
                     required
+                    placeholder="Restricted URL"
                     margin="dense"
                     id="restrictedUrl"
                     {...register("restrictedUrl", { required: true })}
@@ -173,14 +193,15 @@ export const CreateServerModal = ({ openModal, handleClose }: ModalProps) => {
                 justifyContent={"space-between"}
                 alignItems={"center"}
               >
-                <label>
+                <label style={{ fontSize: "14px" }}>
                   Idle Timeout URL<span className="required">*</span>
                 </label>
                 <FormControl className="form-design">
                   <OutlinedInput
-                    style={{ width: "350px", height: "48px" }}
+                    className="outlineInput"
                     autoFocus
                     required
+                    placeholder="Idle Timeout URL"
                     margin="dense"
                     id="idleTimeoutUrl"
                     {...register("idleTimeoutUrl", { required: true })}
@@ -194,14 +215,15 @@ export const CreateServerModal = ({ openModal, handleClose }: ModalProps) => {
                 justifyContent={"space-between"}
                 alignItems={"center"}
               >
-                <label>
+                <label style={{ fontSize: "14px" }}>
                   General Timeout URL<span className="required">*</span>
                 </label>
                 <FormControl className="form-design">
                   <OutlinedInput
-                    style={{ width: "350px", height: "48px" }}
+                    className="outlineInput"
                     autoFocus
                     required
+                    placeholder="General Timeout URL"
                     margin="dense"
                     id="generalTimeoutUrl"
                     {...register("generalTimeoutUrl", { required: true })}
@@ -215,14 +237,15 @@ export const CreateServerModal = ({ openModal, handleClose }: ModalProps) => {
                 justifyContent={"space-between"}
                 alignItems={"center"}
               >
-                <label>
+                <label style={{ fontSize: "14px" }}>
                   Administrator Revoke URL<span className="required">*</span>
                 </label>
                 <FormControl className="form-design">
                   <OutlinedInput
-                    style={{ width: "350px", height: "48px" }}
+                    className="outlineInput"
                     autoFocus
                     required
+                    placeholder="Administrator Revoke URL"
                     margin="dense"
                     id="revokeAdministratorUrl"
                     {...register("revokeAdministratorUrl", { required: true })}
@@ -239,12 +262,13 @@ export const CreateServerModal = ({ openModal, handleClose }: ModalProps) => {
               display={"flex"}
               justifyContent={"space-between"}
             >
-              <Button variant="contained">Reset</Button>
+              <Button variant="contained" className="buttonStyle">Reset</Button>
               <Grid display={"flex"} columnGap={"8px"}>
-                <Button variant="contained" onClick={handleClose}>
+                <Button variant="contained" className="buttonStyle" onClick={handleClose}>
                   Cancel
                 </Button>
-                <Button type="submit" variant="contained">
+                <Button type="submit" className="buttonStyle" variant="contained">
+                  <SaveIconOutlinedIcon style={{ fontSize: "18px", padding: "4px" }} />
                   Save & Close
                 </Button>
               </Grid>

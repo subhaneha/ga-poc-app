@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+.MuiDialogTitle-root{
+  padding: 10px !important;
+  font-size: 18px !important;
+}
+
 .MuiMenu-paper{
   border-radius: 0 !important;
 }
@@ -23,3 +28,8 @@ code {
   color: #fff;
   font-size: 0.8rem;
 }
+
+.MuiButton-root {
+  text-transform: capitalize !important;
+}
+

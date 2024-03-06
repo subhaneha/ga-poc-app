@@ -56,6 +56,65 @@
   font-size: 14px !important;
 }
 
+.form-design{
+  margin-bottom: 16px !important;
+  label{
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+}
+.required{
+  color: #ff0000;
+  margin-left: 2px;
+}
+.modalTitle{
+  font-weight: 600!important;
+  margin-left: 12px!important;
+}
+.form-container{
+  position: relative;
+  padding: 20px 18px 8px;
+  border: 1px solid gray;
+  margin-bottom: 18px;
+  .title{
+    position: absolute;
+    top: -12px;
+    margin: 0;
+    background: #ffffff;
+    padding: 0 12px;
+    left: 8px;
+  }
+  input{
+    padding: 8px;
+  }
+}
+.formFieldSection{
+  height: 75vh;
+  overflow-y: scroll;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.dialogfooter {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  padding: 16px 0;
+  text-align: center;
+  background-color: #fff;
+}
+.tabsLabel{
+  text-align: left;
+  width: 150px;
+  h6{
+    margin: 0px;
+    font-size: 16px;
+  }
+  p{
+    margin: 0px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

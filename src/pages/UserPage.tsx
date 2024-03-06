@@ -19,6 +19,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { Breadcrumb } from '../components/common/BreadCrumb';
 import { TableLayout } from '../components/common/Table';
+import { CreateUserModal } from '../components/modals/CreateUserModal';
+
 const UserPage: React.FC = () => {
   const [open, setOpen] = React.useState(false);
 
@@ -215,7 +217,8 @@ const UserPage: React.FC = () => {
             <div style={{ width: '100%' }}>
                 <TableLayout rowvalues={rows} coloumnvalues={columns} />
             </div>
-            <React.Fragment>
+            <CreateUserModal openModal={open} handleClose={() => setOpen(false)} />
+            {/* <React.Fragment>
         <Dialog
           open={open}
           fullWidth
@@ -389,7 +392,7 @@ const UserPage: React.FC = () => {
             <Button type="submit">Submit</Button>
           </DialogActions>
         </Dialog>
-      </React.Fragment>
+      </React.Fragment> */}
     </>
   );
 };

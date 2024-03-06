@@ -125,7 +125,7 @@ export const CreateUserModal = ({ openModal, handleClose }: ModalProps) => {
                                             borderRight: '4px solid #fff'
                                         },
                                         '& .Mui-selected': {
-                                            color: '#fff',
+                                            color: '#fff!important',
                                             backgroundColor: '#1976d2'
                                             
                                         },

@@ -67,28 +67,3 @@
 .list-icons{
     color: rgb(83 127 174)  !important;
 }
-
-.form-design{
-    padding-bottom: 20px !important;
-    label{
-      margin-bottom: 4px;
-    }
-}
-
-.required{
-  color: red;
-  margin-left: 2px;
-}
-
-.form-container{
-  position: relative;
-  padding:12px;
-  border: 1px solid gray;
-  margin-bottom: 18px;
-  .title{
-    position: absolute;
-    top: -12px;
-    margin: 0;
-    background: #ffffff;
-  }
-}

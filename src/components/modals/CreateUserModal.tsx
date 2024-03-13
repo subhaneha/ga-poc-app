@@ -1,4 +1,5 @@
 import React from "react";
+import ContentCopyTwoToneIcon from '@mui/icons-material/ContentCopyTwoTone';
 import {
   Box,
   Button,
@@ -12,6 +13,7 @@ import {
   Select,
   Tab,
   Tabs,
+  TextField,
   Typography,
   capitalize,
 } from "@mui/material";
@@ -19,6 +21,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import SaveIconOutlinedIcon from '@mui/icons-material/Save';
 import { SubmitHandler, useForm } from "react-hook-form";
 import { bottom } from "@popperjs/core";
+import { TableLayout } from "../common/Table";
+import { GridColDef } from "@mui/x-data-grid";
 interface ModalProps {
     openModal: boolean;
     handleClose: () => void;
@@ -39,6 +43,38 @@ type Inputs = {
     locale: string;
 
 };
+
+const columns: GridColDef[] = [
+    {
+        field: 'clone', headerName: 'Clone', width: 130, renderCell: () => (
+            <IconButton aria-label="delete" className='list-icons' size='small'>
+                <ContentCopyTwoToneIcon />
+            </IconButton>
+        ), flex: 1, sortable: false
+    },
+    { field: 'authenticationSources', headerName: 'Authentication Sources', flex: 1, sortable: false },
+    { field: 'sourceName', headerName: 'Source Name', flex: 1, sortable: false ,renderCell:()=> (
+        <OutlinedInput 
+        autoFocus
+        margin="dense"
+        placeholder="Source Name"
+        id="sourceName"
+        type="text"
+    />
+    )},
+    { field: 'uniqueName', headerName: 'Unique Name', flex: 1, sortable: false ,renderCell:()=> (
+        <input placeholder="Unique Name" /> 
+    )},
+
+   
+];
+
+const rows = [
+    { id: 1, clone: 'client', authenticationSources: 'User password', sourceName: '',uniqueName:'' },
+    { id: 2, clone: 'client2', authenticationSources: 'SAML', sourceName: '',uniqueName:''  },
+    { id: 3, clone: 'client3', authenticationSources: 'IT', sourceName: '' ,uniqueName:'' },
+    
+];
 interface TabPanelProps {
     children?: React.ReactNode;
     index: number;
@@ -420,6 +456,9 @@ export const CreateUserModal = ({ openModal, handleClose }: ModalProps) => {
                         Item Three
                     </CustomTabPanel>
                     <CustomTabPanel value={value} index={3}>
+                    <div style={{ width: '100%' }}>
+                        <TableLayout rowvalues={rows} coloumnvalues={columns} />
+                    </div>
                         Item Four
                     </CustomTabPanel>
                     <CustomTabPanel value={value} index={4}>

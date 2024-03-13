@@ -121,7 +121,7 @@ const columns: GridColDef[] = [
     renderCell: () => (
       <OutlinedInput
         autoFocus
-        margin="dense"
+        style={{ height: "48px" }}
         placeholder="Source Name"
         id="sourceName"
         type="text"
@@ -133,7 +133,15 @@ const columns: GridColDef[] = [
     headerName: "Unique Name",
     flex: 1,
     sortable: false,
-    renderCell: () => <input placeholder="Unique Name" />,
+    renderCell: () => (
+        <OutlinedInput
+        autoFocus
+        style={{ height: "48px" }}
+        placeholder="Unique Name"
+        id="uniqueName"
+        type="text"
+      />
+    ),
   },
 ];
 
@@ -559,7 +567,6 @@ export const CreateUserModal = ({ openModal, handleClose }: ModalProps) => {
             <div style={{ width: "100%" }}>
               <TableLayout rowvalues={rows} coloumnvalues={columns} />
             </div>
-            Item Four
           </CustomTabPanel>
           <CustomTabPanel value={value} index={4}>
             Item Five

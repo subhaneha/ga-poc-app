@@ -28,19 +28,33 @@ interface ModalProps {
   handleClose: () => void;
 }
 type Inputs = {
-  firstName: string;
-  middleInitial: string;
-  lastName: string;
-  email: number;
-  userType: string;
-  login: string;
-  password: string;
-  repeatPassword: string;
-  generalTimeOut: string;
-  idleTimeOut: string;
-  changePasswordDays: number;
-  accountStatus: string;
-  locale: string;
+    firstName: string;
+    middleInitial: string;
+    lastName: string;
+    email: number;
+    userType: string;
+    login: string;
+    password: string;
+    repeatPassword: string;
+    generalTimeOut: string;
+    idleTimeOut: string;
+    changePasswordDays: number;
+    accountStatus: string;
+    accountexpiration: string;
+    locale: string;
+    addressIndicator: string;
+    adress1: string;
+    adress2: string;
+    city: string;
+    state: string;
+    zip: string;
+    country: string;
+    telephone: string;
+    fax: string;
+    pager: string;
+    cellular: string;
+    customf1: string;
+    customf2: string;
 };
 
 const assignRoleColumns: GridColDef[] = [
@@ -224,7 +238,7 @@ export const CreateUserModal = ({ openModal, handleClose }: ModalProps) => {
           </IconButton>
         </Grid>
       </Grid>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form style={{position: "relative"}} onSubmit={handleSubmit(onSubmit)}>
         <div className="formFieldSection">
           <Grid container sx={{ mt: 2, px: 3 }}>
             <Grid item xs={12}>
@@ -515,9 +529,8 @@ export const CreateUserModal = ({ openModal, handleClose }: ModalProps) => {
                       autoFocus
                       required
                       margin="dense"
-                      placeholder="Last Name"
-                      id="lastName"
-                      {...register("lastName", { required: true })}
+                      id="accountexpiration"
+                      {...register("accountexpiration", { required: true })}
                       type="date"
                       fullWidth
                     />
@@ -547,7 +560,214 @@ export const CreateUserModal = ({ openModal, handleClose }: ModalProps) => {
             </Grid>
           </CustomTabPanel>
           <CustomTabPanel value={value} index={1}>
-            Item Two
+          <Grid container sx={{ p: 3 }} spacing={3}>
+                <Grid item md={4}>
+                    <Box className="form-container">
+                        <p className="title">Address Inforamtion</p>
+                        <FormControl fullWidth className="form-design">
+                            <label htmlFor="component-outlined" >
+                            Address Indicator
+                            </label>
+                            <Select 
+                                sx={{
+                                    '& .MuiSelect-select': {
+                                    padding: '8px',
+                                    },
+                                }}
+                                autoFocus
+                                fullWidth
+                                id="addressIndicator"
+                                {...register("addressIndicator")}
+                                >
+                                <MenuItem  value={'10'}>Ten</MenuItem > 
+                                <MenuItem  value={'20'}>Twenty</MenuItem > 
+                                <MenuItem  value={'30'}>Thirty</MenuItem > 
+                            </Select>
+                        </FormControl>
+                            <FormControl fullWidth className="form-design">
+                            <label htmlFor="component-outlined" >
+                                Address Line 1
+                            </label>
+                            <OutlinedInput
+                                autoFocus
+                                placeholder="Address Line 1"
+                                margin="dense"
+                                {...register("adress1")}
+                                name="adress1"
+                                type="text"
+                                fullWidth
+                            />
+                        </FormControl>
+                        <FormControl fullWidth className="form-design">
+                            <label htmlFor="component-outlined" >
+                                Address Line 2
+                            </label>
+                            <OutlinedInput
+                                autoFocus
+                                required
+                                margin="dense"
+                                placeholder="Address Line 2"
+                                id="adress2"
+                                {...register("adress2")}
+                                type="text"
+                                fullWidth
+                            />
+                        </FormControl>
+                        <FormControl fullWidth className="form-design">
+                            <label htmlFor="component-outlined" >
+                                City
+                            </label>
+                            <OutlinedInput
+                                autoFocus
+                                margin="dense"
+                                placeholder="City"
+                                id="city"
+                                {...register("city")}
+                                type="text"
+                                fullWidth
+                            />
+                        </FormControl>
+                        <FormControl fullWidth className="form-design">
+                            <label htmlFor="component-outlined" >
+                                State
+                            </label>
+                            <OutlinedInput
+                                autoFocus
+                                margin="dense"
+                                placeholder="State"
+                                id="state"
+                                {...register("state")}
+                                type="text"
+                                fullWidth
+                            />
+                        </FormControl>
+                        <FormControl fullWidth className="form-design">
+                            <label htmlFor="component-outlined" >
+                                ZIP
+                            </label>
+                            <OutlinedInput
+                                autoFocus
+                                margin="dense"
+                                placeholder="ZIP"
+                                id="zip"
+                                {...register("zip")}
+                                type="text"
+                                fullWidth
+                            />
+                        </FormControl>
+                        <FormControl fullWidth className="form-design">
+                            <label htmlFor="component-outlined" >
+                                Country
+                            </label>
+                            <OutlinedInput
+                                autoFocus
+                                margin="dense"
+                                placeholder="Country"
+                                id="country"
+                                {...register("country")}
+                                type="text"
+                                fullWidth
+                            />
+                        </FormControl>
+                    </Box>
+                </Grid>
+                <Grid item md={4}>
+                    <Box className="form-container">
+                        <p className="title">Telephone Inforamtion</p>
+                            <FormControl fullWidth className="form-design">
+                            <label htmlFor="component-outlined" >
+                                Telephone
+                            </label>
+                            <OutlinedInput
+                                autoFocus
+                                placeholder="Telephone"
+                                margin="dense"
+                                {...register("telephone")}
+                                name="telephone"
+                                type="text"
+                                fullWidth
+                            />
+                        </FormControl>
+                        <FormControl fullWidth className="form-design">
+                            <label htmlFor="component-outlined" >
+                                Fax
+                            </label>
+                            <OutlinedInput
+                                autoFocus
+                                required
+                                margin="dense"
+                                placeholder="Fax"
+                                id="fax"
+                                {...register("fax")}
+                                type="text"
+                                fullWidth
+                            />
+                        </FormControl>
+                        <FormControl fullWidth className="form-design">
+                            <label htmlFor="component-outlined" >
+                                Pager
+                            </label>
+                            <OutlinedInput
+                                autoFocus
+                                margin="dense"
+                                placeholder="Pager"
+                                id="pager"
+                                {...register("pager")}
+                                type="text"
+                                fullWidth
+                            />
+                        </FormControl>
+                        <FormControl fullWidth className="form-design">
+                            <label htmlFor="component-outlined" >
+                                Cellular
+                            </label>
+                            <OutlinedInput
+                                autoFocus
+                                margin="dense"
+                                placeholder="Cellular"
+                                id="cellular"
+                                {...register("cellular")}
+                                type="text"
+                                fullWidth
+                            />
+                        </FormControl>
+                    </Box>
+                </Grid>
+                <Grid item md={4}>
+                    <Box className="form-container">
+                        <p className="title">Custom Headers</p>
+                            <FormControl fullWidth className="form-design">
+                            <label htmlFor="component-outlined" >
+                                Custom Field 1
+                            </label>
+                            <OutlinedInput
+                                autoFocus
+                                placeholder="Custom Field 2"
+                                margin="dense"
+                                {...register("customf1")}
+                                name="customf1"
+                                type="text"
+                                fullWidth
+                            />
+                        </FormControl>
+                        <FormControl fullWidth className="form-design">
+                            <label htmlFor="component-outlined" >
+                            Custom Field 2
+                            </label>
+                            <OutlinedInput
+                                autoFocus
+                                required
+                                margin="dense"
+                                placeholder="Custom Field 2"
+                                id="customf2"
+                                {...register("customf2")}
+                                type="text"
+                                fullWidth
+                            />
+                        </FormControl>
+                    </Box>
+                </Grid>
+            </Grid>
           </CustomTabPanel>
           <CustomTabPanel value={value} index={2}>
             <TableLayout
